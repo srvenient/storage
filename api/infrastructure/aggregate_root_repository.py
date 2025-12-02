@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import TypeVar, Generic, Type, Callable
 
-from common.domain.aggregate_root import AggregateRoot
+from api.domain.aggregate_root import AggregateRoot
 
 # Define a type variable T that is bound to AggregateRoot
 T = TypeVar('T', bound=AggregateRoot)

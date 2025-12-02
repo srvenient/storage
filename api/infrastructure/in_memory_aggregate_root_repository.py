@@ -1,7 +1,7 @@
 from typing import TypeVar, Callable
 
-from common.domain.aggregate_root import AggregateRoot
-from common.infrastructure.aggregate_root_repository import AggregateRootRepository
+from api.domain.aggregate_root import AggregateRoot
+from api.infrastructure.aggregate_root_repository import AggregateRootRepository
 
 # Define a type variable T that is bound to AggregateRoot
 T = TypeVar('T', bound=AggregateRoot)
