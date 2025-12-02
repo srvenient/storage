@@ -1,31 +1,19 @@
+import attrs
+
+
+@attrs.define
 class AggregateRoot:
     """
-    Base class representing an Aggregate Root within a Domain-Driven Design (DDD)
-    context.
+    Base class for Aggregate Roots in Domain-Driven Design (DDD).
 
-    An Aggregate Root serves as the entry point to an aggregate, ensuring
-    integrity and enforcing invariants across the entire aggregate structure.
+    Attributes:
+        id (str): Unique identifier for the aggregate root.
 
-    Concrete domain aggregates should inherit from this class and extend it with
-    additional domain-specific state and behavior.
+    Notes:
+        - Intended to be inherited by concrete domain aggregates.
+        - Provides a simple base with an identifier, while concrete aggregates
+          can add domain-specific attributes and behavior.
+        - By default, `id` can be modified after creation. Use `frozen=True`
+          in @attrs.define if you want it to be immutable.
     """
-
-    def __init__(self, _id: str):
-        """
-        Initialize a new AggregateRoot.
-
-        Args:
-            _id (str): Unique identifier of the aggregate root. Internally stored
-                       as `_id` but exposed via the `id` property.
-        """
-        self._id = _id
-
-    @property
-    def id(self) -> str:
-        """
-        Read-only property to access the unique identifier of the aggregate root.
-
-        Returns:
-            str: The unique identifier stored in `_id`.
-        """
-        return self._id
+    id: str = attrs.field(init=True)
